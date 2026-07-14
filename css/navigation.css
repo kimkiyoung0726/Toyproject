@@ -1,0 +1,58 @@
+/* ================================================================
+   FITTORY GNB / LNB NAVIGATION
+   색상, 너비, 높이 등 공통 설정은 아래 변수만 수정하면 됩니다.
+================================================================ */
+:root {
+  --nav-green: #174f3b;
+  --nav-green-dark: #103c2e;
+  --nav-green-soft: #f1f6f1;
+  --nav-text: #1b231f;
+  --nav-muted: #6f7772;
+  --nav-border: #e2e7e3;
+  --nav-white: #ffffff;
+  --nav-max-width: 1280px;
+  --gnb-height: 80px;
+  --promo-height: 36px;
+}
+
+/* 기본 접근성 및 공통 요소 */
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.site-header *{box-sizing:border-box}.site-header ul,.mobile-drawer ul{list-style:none;margin:0;padding:0}.site-header button,.mobile-drawer button{font:inherit}.site-header a,.mobile-drawer a{text-decoration:none}.site-header button:focus-visible,.site-header a:focus-visible,.mobile-drawer button:focus-visible,.mobile-drawer a:focus-visible{outline:2px solid var(--nav-green);outline-offset:3px;border-radius:2px}
+body.nav-locked{overflow:hidden}
+
+/* 1. 프로모션 바 */
+.promotion-bar{height:var(--promo-height);display:flex;align-items:center;justify-content:center;background:var(--nav-green);color:var(--nav-white);font-size:12px;letter-spacing:.01em;text-align:center;position:relative;z-index:80}
+
+/* 2. GNB 기본 레이아웃 */
+.site-header{position:relative;z-index:70;background:var(--nav-white)}
+.site-header.gnb-fixed{padding-top:var(--gnb-height)}
+.gnb-sticky{width:100%;position:relative;background:var(--nav-white);z-index:70}
+.gnb-sticky.is-fixed{position:fixed;top:0;right:0;left:0}
+.gnb-sticky.menu-open{box-shadow:0 8px 18px rgba(15,52,39,.09)}
+.gnb-shell{height:var(--gnb-height);border-bottom:1px solid var(--nav-border);background:var(--nav-white);position:relative;z-index:3}
+.gnb-inner{width:min(calc(100% - 48px),var(--nav-max-width));height:100%;margin:0 auto;display:grid;grid-template-columns:180px 1fr 180px;align-items:center}
+.site-logo{justify-self:start;color:var(--nav-green-dark);font:800 26px/1 Arial,sans-serif;letter-spacing:-1.2px}.site-logo span{display:inline-block;margin-left:4px;color:#9bbb3c;font-size:7px;vertical-align:top;margin-top:3px}
+.desktop-gnb{height:100%;justify-self:center}.gnb-list{height:100%;display:flex;align-items:stretch;gap:34px}.gnb-item{height:100%;position:relative}.gnb-button{height:100%;padding:0 1px;border:0;background:transparent;color:var(--nav-text);font:600 13px/1 Arial,sans-serif;letter-spacing:.05em;position:relative}.gnb-button::after{content:"";position:absolute;right:50%;bottom:-1px;left:50%;height:2px;background:var(--nav-green);transition:left .2s ease,right .2s ease}.gnb-item:hover .gnb-button,.gnb-item.active .gnb-button,.gnb-item.is-open .gnb-button,.gnb-button:focus-visible{color:var(--nav-green)}.gnb-item:hover .gnb-button::after,.gnb-item.active .gnb-button::after,.gnb-item.is-open .gnb-button::after{right:0;left:0}
+
+/* PC 유틸리티 라인 아이콘 */
+.gnb-utils{justify-self:end;display:flex;align-items:center;gap:18px}.utility-link{width:28px;height:32px;display:grid;place-items:center;position:relative;color:var(--nav-text)}.line-icon{display:block;position:relative;width:20px;height:20px;color:currentColor}.icon-search::before{content:"";position:absolute;width:11px;height:11px;border:1.6px solid currentColor;border-radius:50%;left:1px;top:1px}.icon-search::after{content:"";position:absolute;width:7px;height:1.6px;background:currentColor;transform:rotate(45deg);left:12px;top:14px;border-radius:1px}.icon-user::before{content:"";position:absolute;width:7px;height:7px;border:1.5px solid currentColor;border-radius:50%;left:6px;top:1px}.icon-user::after{content:"";position:absolute;width:14px;height:8px;border:1.5px solid currentColor;border-bottom:0;border-radius:9px 9px 0 0;left:2.5px;bottom:1px}.icon-cart::before{content:"";position:absolute;width:14px;height:10px;border:1.5px solid currentColor;border-top:0;left:3px;top:5px;transform:skew(-6deg)}.icon-cart::after{content:"•  •";position:absolute;font-size:14px;letter-spacing:3px;white-space:nowrap;left:3px;top:8px}.cart-badge{position:absolute;right:-5px;top:0;min-width:17px;height:17px;padding:0 4px;display:grid;place-items:center;background:var(--nav-green);color:#fff;border-radius:9px;font:700 9px/1 Arial}
+.mobile-menu-open{display:none}
+
+/* 3. PC 드롭다운 공통: 레이아웃을 밀지 않는 absolute 방식 */
+.desktop-panel{position:absolute;top:var(--gnb-height);z-index:2;background:var(--nav-white);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s ease,transform .18s ease,visibility .18s}.desktop-panel.is-open{opacity:1;visibility:visible;pointer-events:auto}
+.mega-panel{left:0;width:100%;border-bottom:1px solid var(--nav-border);transform:translateY(-8px)}.mega-panel.is-open{transform:translateY(0)}.mega-inner{width:min(calc(100% - 48px),var(--nav-max-width));margin:0 auto;padding:40px 0 42px;display:grid;grid-template-columns:.75fr 1fr 1.15fr .85fr 1.55fr;gap:42px}.mega-column h2{margin:0 0 19px;color:var(--nav-text);font-size:13px;font-weight:700}.mega-column li+li{margin-top:12px}.mega-column a{color:var(--nav-muted);font-size:13px;line-height:1.45}.mega-column a:hover,.mega-column a:focus-visible{color:var(--nav-green)}.mega-promo{min-height:190px;padding:30px 32px;background:linear-gradient(135deg,#eaf1df,#dce8cf);display:flex;flex-direction:column;align-items:flex-start;justify-content:center}.mega-promo p{margin:0 0 14px;color:#71873c;font:700 9px/1 Arial;letter-spacing:.18em}.mega-promo strong{color:var(--nav-green-dark);font:500 23px/1.45 Georgia,"Noto Serif KR",serif;letter-spacing:-.04em}.mega-promo a{margin-top:22px;color:var(--nav-green);font-size:12px;font-weight:700}.mega-promo a span{margin-left:15px}
+.dropdown-panel{width:210px;padding:13px 0;border:1px solid var(--nav-border);box-shadow:0 10px 22px rgba(15,52,39,.08);transform:translate(-50%,-8px)}.dropdown-panel.is-open{transform:translate(-50%,0)}.dropdown-panel li a{display:block;padding:11px 20px;color:#454e49;font-size:13px}.dropdown-panel li a:hover,.dropdown-panel li a:focus-visible{background:var(--nav-green-soft);color:var(--nav-green)}
+
+/* 4. 페이지별 LNB */
+.lnb{height:49px;background:#fbfcfa;border-bottom:1px solid var(--nav-border)}.lnb-inner{width:min(calc(100% - 48px),var(--nav-max-width));height:100%;margin:0 auto;display:flex;align-items:stretch;gap:34px}.lnb a{height:100%;display:flex;align-items:center;color:#6c756f;font-size:12px;white-space:nowrap;position:relative}.lnb a:hover,.lnb a:focus-visible,.lnb a.active{color:var(--nav-green)}.lnb a.active{font-weight:700}.lnb a.active::after{content:"";position:absolute;right:0;bottom:-1px;left:0;height:2px;background:var(--nav-green)}
+
+/* 5. 모바일 드로어: 기본은 화면 밖, 768px 이하에서 사용 */
+.mobile-overlay{position:fixed;inset:0;background:rgba(10,25,19,.45);z-index:190;opacity:0;transition:opacity .24s ease}.mobile-overlay.is-visible{opacity:1}.mobile-drawer{position:fixed;top:0;bottom:0;left:0;z-index:200;width:min(88vw,390px);background:#fff;overflow-y:auto;transform:translateX(-102%);visibility:hidden;transition:transform .26s ease,visibility .26s}.mobile-drawer.is-open{transform:translateX(0);visibility:visible}.drawer-head{height:68px;padding:0 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--nav-border)}.drawer-close{width:40px;height:40px;border:0;background:transparent;color:var(--nav-text);font:300 32px/1 Arial}.mobile-search{margin:22px 20px 12px;height:48px;border:1px solid #cfd7d1;background:#fff;display:flex}.mobile-search input{min-width:0;flex:1;border:0;padding:0 15px;outline:0;font-size:13px}.mobile-search button{width:48px;border:0;background:transparent;color:var(--nav-green)}.mobile-nav{padding:4px 20px 20px}.mobile-accordion{border-bottom:1px solid var(--nav-border)}.mobile-accordion>button{width:100%;height:58px;padding:0;border:0;background:#fff;display:flex;align-items:center;justify-content:space-between;color:var(--nav-text);font:700 14px/1 Arial;letter-spacing:.04em}.mobile-accordion>button i{width:14px;height:14px;position:relative}.mobile-accordion>button i::before,.mobile-accordion>button i::after{content:"";position:absolute;background:currentColor}.mobile-accordion>button i::before{width:14px;height:1px;top:6px;left:0}.mobile-accordion>button i::after{width:1px;height:14px;top:0;left:6px;transition:transform .2s}.mobile-accordion.is-open>button i::after{transform:rotate(90deg)}.mobile-accordion.active>button,.mobile-accordion.is-open>button{color:var(--nav-green)}.accordion-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .22s ease}.accordion-panel>ul{overflow:hidden;display:grid;grid-template-columns:1fr 1fr;padding:0;background:var(--nav-green-soft)}.mobile-accordion.is-open .accordion-panel{grid-template-rows:1fr}.mobile-accordion.is-open .accordion-panel>ul{padding:10px 12px 14px}.accordion-panel a{display:block;padding:9px 8px;color:#5d6761;font-size:12px}.accordion-panel a:hover,.accordion-panel a:focus-visible,.accordion-panel a.active{color:var(--nav-green);font-weight:700}.mobile-support{padding:22px 20px 38px;display:grid;grid-template-columns:1fr 1fr;gap:14px 20px;background:#f7f8f6}.mobile-support a{color:#5f6863;font-size:12px}
+
+/* 6. 태블릿: 메뉴 간격 축소 */
+@media (max-width:1024px) and (min-width:769px){.gnb-inner{grid-template-columns:145px 1fr 135px}.gnb-list{gap:19px}.gnb-utils{gap:9px}.mega-inner{gap:24px}.mega-promo{padding:24px}.mega-promo strong{font-size:20px}}
+
+/* 7. 모바일 GNB + 가로 스크롤 LNB */
+@media (max-width:768px){:root{--gnb-height:64px;--promo-height:32px}.promotion-bar{font-size:11px}.site-header.gnb-fixed{padding-top:var(--gnb-height)}.gnb-inner{width:100%;padding:0 17px;grid-template-columns:42px 1fr 42px}.mobile-menu-open{width:36px;height:36px;border:0;background:transparent;padding:8px;display:flex;flex-direction:column;justify-content:center;gap:5px}.mobile-menu-open span{width:20px;height:1.5px;background:var(--nav-text);display:block}.site-logo{justify-self:center;font-size:22px}.desktop-gnb,.search-link,.account-link{display:none}.gnb-utils{justify-self:end;gap:0}.utility-link{width:36px}.cart-badge{right:-1px;top:1px}.desktop-panel{display:none}.lnb{height:46px}.lnb-inner{width:100%;padding:0 18px;gap:26px;overflow-x:auto;overscroll-behavior-inline:contain;scrollbar-width:none;-ms-overflow-style:none}.lnb-inner::-webkit-scrollbar{display:none}.lnb a{font-size:12px}.mega-inner{display:none}}
+
+@media (prefers-reduced-motion:reduce){.desktop-panel,.mobile-overlay,.mobile-drawer,.accordion-panel,.gnb-button::after{transition:none!important;scroll-behavior:auto!important}}

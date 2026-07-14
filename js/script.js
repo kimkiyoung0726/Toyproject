@@ -1,41 +1,37 @@
-// 모바일 메뉴
-const menuButton = document.querySelector('#menuBtn');
-const mainNav = document.querySelector('#mainNav');
+/* FITTORY 메인 콘텐츠 인터랙션 */
+(() => {
+  'use strict';
 
-menuButton.addEventListener('click', () => {
-  mainNav.classList.toggle('open');
-});
+  // 장바구니 담기
+  let cartCount = 0;
+  const cartCountElement = document.querySelector('#cartCount');
+  const cartLink = document.querySelector('.cart-link');
+  const toast = document.querySelector('#toast');
 
-mainNav.querySelectorAll('a').forEach((link) => {
-  link.addEventListener('click', () => mainNav.classList.remove('open'));
-});
-
-// 장바구니
-let cartCount = 0;
-const cartCountElement = document.querySelector('#cartCount');
-const toast = document.querySelector('#toast');
-
-document.querySelectorAll('.add-cart').forEach((button) => {
-  button.addEventListener('click', () => {
-    cartCount += 1;
-    cartCountElement.textContent = cartCount;
-    toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 1800);
+  document.querySelectorAll('.add-cart').forEach((button) => {
+    button.addEventListener('click', () => {
+      cartCount += 1;
+      if (cartCountElement) cartCountElement.textContent = String(cartCount);
+      cartLink?.setAttribute('aria-label', `장바구니, 상품 ${cartCount}개`);
+      toast?.classList.add('show');
+      window.setTimeout(() => toast?.classList.remove('show'), 1800);
+    });
   });
-});
 
-// 찜하기
-document.querySelectorAll('.heart').forEach((button) => {
-  button.addEventListener('click', () => {
-    button.classList.toggle('active');
-    button.textContent = button.classList.contains('active') ? '♥' : '♡';
+  // 상품 찜하기
+  document.querySelectorAll('.heart').forEach((button) => {
+    button.addEventListener('click', () => {
+      const isActive = button.classList.toggle('active');
+      button.textContent = isActive ? '♥' : '♡';
+      button.setAttribute('aria-pressed', String(isActive));
+    });
   });
-});
 
-// 뉴스레터
-document.querySelector('#newsletterForm').addEventListener('submit', (event) => {
-  event.preventDefault();
-  const button = event.currentTarget.querySelector('button');
-  button.textContent = '구독 완료 ✓';
-  event.currentTarget.reset();
-});
+  // 뉴스레터 구독 예시
+  document.querySelector('#newsletterForm')?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const button = event.currentTarget.querySelector('button');
+    if (button) button.textContent = '구독 완료 ✓';
+    event.currentTarget.reset();
+  });
+})();
