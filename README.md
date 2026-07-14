@@ -1,6 +1,10 @@
-# FITTORY 메인페이지
+# VIONA 메인페이지
 
-React, Vite 및 별도 프레임워크 없이 HTML, CSS, JavaScript로 구성된 정적 쇼핑몰 메인페이지입니다.
+VIONA는 건강기능식품을 판매하는 라이프스타일 웰니스 브랜드입니다. 건강 콘텐츠와 맞춤형 상품 추천을 통해 누구나 자신의 건강 루틴을 쉽고 꾸준히 실천할 수 있도록 돕습니다.
+
+**Brand Slogan:** Healthy Routine, Better Everyday.
+
+이 프로젝트는 React, Vite 및 별도 프레임워크 없이 HTML, CSS, JavaScript로 구성된 정적 브랜드 쇼핑몰 메인페이지입니다.
 
 ## 폴더 구조
 

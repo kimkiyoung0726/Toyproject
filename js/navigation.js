@@ -1,5 +1,5 @@
 /* ================================================================
-   FITTORY GNB / LNB NAVIGATION
+   VIONA GNB / LNB NAVIGATION
    - PC: 메가 메뉴, 세로형 드롭다운, 키보드 접근
    - Mobile: 슬라이드 메뉴, 단일 오픈 아코디언
    - Common: 고정 GNB, ESC 닫기, 외부 클릭 닫기
