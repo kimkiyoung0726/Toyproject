@@ -56,3 +56,12 @@ body.nav-locked{overflow:hidden}
 @media (max-width:768px){:root{--gnb-height:64px;--promo-height:32px}.promotion-bar{font-size:11px}.site-header.gnb-fixed{padding-top:var(--gnb-height)}.gnb-inner{width:100%;padding:0 17px;grid-template-columns:42px 1fr 42px}.mobile-menu-open{width:36px;height:36px;border:0;background:transparent;padding:8px;display:flex;flex-direction:column;justify-content:center;gap:5px}.mobile-menu-open span{width:20px;height:1.5px;background:var(--nav-text);display:block}.site-logo{justify-self:center;font-size:22px}.desktop-gnb,.search-link,.account-link{display:none}.gnb-utils{justify-self:end;gap:0}.utility-link{width:36px}.cart-badge{right:-1px;top:1px}.desktop-panel{display:none}.lnb{height:46px}.lnb-inner{width:100%;padding:0 18px;gap:26px;overflow-x:auto;overscroll-behavior-inline:contain;scrollbar-width:none;-ms-overflow-style:none}.lnb-inner::-webkit-scrollbar{display:none}.lnb a{font-size:12px}.mega-inner{display:none}}
 
 @media (prefers-reduced-motion:reduce){.desktop-panel,.mobile-overlay,.mobile-drawer,.accordion-panel,.gnb-button::after{transition:none!important;scroll-behavior:auto!important}}
+
+/* ================================================================
+   VIONA NAVIGATION TYPOGRAPHY SCALE
+   메뉴 구조와 간격은 유지하면서 실제 브랜드몰 수준으로 확대합니다.
+================================================================ */
+.promotion-bar{font-size:13px}.site-logo{font-size:29px}.site-logo span{font-size:8px}.gnb-button{font-size:14px}.cart-badge{font-size:10px}.mega-column h2{font-size:15px}.mega-column a{font-size:14px;line-height:1.55}.mega-promo p{font-size:11px}.mega-promo strong{font-size:25px}.mega-promo a{font-size:14px}.dropdown-panel li a{font-size:14px;line-height:1.45}.lnb a{font-size:14px}.mobile-search input{font-size:14px}.mobile-accordion>button{font-size:15px}.accordion-panel a{font-size:14px;line-height:1.45}.mobile-support a{font-size:13px}
+
+@media (max-width:1024px) and (min-width:769px){.site-logo{font-size:27px}.gnb-button{font-size:13px}.mega-column a{font-size:13px}.mega-promo strong{font-size:22px}}
+@media (max-width:768px){.promotion-bar{font-size:12px}.site-logo{font-size:24px}.lnb a{font-size:13px}.mobile-search input{font-size:14px}.mobile-accordion>button{font-size:16px}.accordion-panel a{font-size:14px}.mobile-support a{font-size:14px}}
