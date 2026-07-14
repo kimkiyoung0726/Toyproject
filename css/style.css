@@ -12,3 +12,12 @@
 
 @media(max-width:900px){.hero h1{font-size:47px}.section-heading h2{font-size:36px}.brand-copy h2{font-size:42px}.newsletter h2{font-size:32px}}
 @media(max-width:600px){.logo{font-size:24px}.eyebrow{font-size:12px}.hero h1{font-size:39px;line-height:1.24}.hero-content>p:not(.eyebrow){font-size:16px}.btn{font-size:14px}.section-heading h2{font-size:33px;line-height:1.35}.goal-card h3{font-size:19px}.goal-card p{font-size:14px}.routine-card h3{font-size:28px}.routine-card p{font-size:14px}.feature-story h3{font-size:34px}.brand-copy h2{font-size:38px}.brand-copy>p:not(.eyebrow){font-size:15px}.newsletter h2{font-size:29px}.footer-links a,.footer-links p{font-size:12px}.footer-bottom{font-size:10px}}
+
+/* ================================================================
+   VIONA FOOTER COMPACT LAYOUT
+   PC에서는 메뉴 그룹을 오른쪽에 모으고 전체 여백을 줄입니다.
+================================================================ */
+footer{padding:48px max(4vw,24px) 22px}.footer-top{display:grid;grid-template-columns:minmax(240px,1fr) auto;align-items:start;column-gap:40px}.footer-links{width:auto;margin-left:auto;grid-template-columns:repeat(3,minmax(92px,118px)) minmax(155px,180px);justify-content:end;gap:28px}.footer-links>div{gap:8px}.footer-links b{margin-bottom:4px}.footer-links p{margin:0}.footer-top>div:first-child>p{margin:12px 0 24px}.footer-bottom{margin-top:36px;padding-top:18px}.footer-bottom p{margin:0}.footer-bottom div{gap:16px}
+
+@media(max-width:900px){footer{padding:46px 20px 22px}.footer-top{display:flex;flex-direction:column;gap:32px}.footer-links{width:100%;margin-left:0;grid-template-columns:repeat(4,minmax(0,1fr));justify-content:start;gap:20px}.footer-bottom{margin-top:30px}}
+@media(max-width:600px){footer{padding:40px 20px 20px}.footer-top{gap:28px}.footer-links{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 20px}.footer-links>div{gap:7px}.footer-bottom{margin-top:26px;padding-top:16px}}
