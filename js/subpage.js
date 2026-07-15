@@ -98,49 +98,75 @@
   };
 
   const section = document.body.dataset.section || 'shop';
+  const currentPage = document.body.dataset.page || pages[section].lnb[0][1];
+  const root = document.body.dataset.root || '.';
   const page = pages[section] || pages.shop;
-  const fileMap = {shop:'shop.html',routine:'routine.html',magazine:'magazine.html',recipe:'recipe.html',event:'event.html',brand:'brand.html'};
   const labelMap = {shop:'SHOP',routine:'ROUTINE',magazine:'MAGAZINE',recipe:'RECIPE',event:'EVENT',brand:'BRAND'};
+  const fileNames = {
+    shop:{all:'index.html',weight:'weight.html',gut:'gut.html',immune:'immune.html',energy:'energy.html',best:'best.html',new:'new.html'},
+    routine:{custom:'index.html',check:'check.html',morning:'morning.html',workout:'workout.html',office:'office.html'},
+    magazine:{all:'index.html',nutrition:'nutrition.html',habit:'habit.html',diet:'diet.html',guide:'guide.html'},
+    recipe:{all:'index.html',diet:'diet.html',protein:'protein.html',easy:'easy.html',drink:'drink.html'},
+    event:{ongoing:'index.html',challenge:'challenge.html',welcome:'welcome.html',ended:'ended.html'},
+    brand:{about:'index.html',philosophy:'philosophy.html',standard:'standard.html',sustainability:'sustainability.html'}
+  };
+  const homeUrl = `${root}/index.html`;
+  const routeFor = (key, id = pages[key].lnb[0][1]) => `${root}/${key}/${fileNames[key][id]}`;
+  const asset = path => `${root}/${path}`;
+  const firstId = page.lnb[0][1];
+  const currentLabel = page.lnb.find(item => item[1] === currentPage)?.[0] || page.lnb[0][0];
+  const selectedCard = page.cards.find(card => card.id === currentPage) || page.cards[0];
 
-  const navigationLinks = Object.keys(fileMap).map(key => `<li class="gnb-item ${key === section ? 'active' : ''}"><a class="gnb-button" href="${fileMap[key]}" ${key === section ? 'aria-current="page"' : ''}>${labelMap[key]}</a></li>`).join('');
-  const mobileLinks = Object.keys(fileMap).map(key => `<a class="${key === section ? 'active' : ''}" href="${fileMap[key]}" ${key === section ? 'aria-current="page"' : ''}>${labelMap[key]}<span>→</span></a>`).join('');
-  const lnb = page.lnb.map((item,index) => `<a class="${index === 0 ? 'active' : ''}" href="#${item[1]}" ${index === 0 ? 'aria-current="page"' : ''}>${item[0]}</a>`).join('');
+  const navigationLinks = Object.keys(pages).map(key => `
+    <li class="gnb-item has-menu ${key === section ? 'active' : ''}" data-menu="${key}">
+      <button class="gnb-button" type="button" aria-expanded="false" aria-controls="dropdown-${key}">${labelMap[key]}</button>
+    </li>`).join('');
+
+  const desktopPanels = Object.keys(pages).map(key => {
+    if (key === 'shop') {
+      return `<div class="desktop-panel mega-panel" id="dropdown-shop" data-panel="shop" aria-hidden="true"><div class="mega-inner">
+        <div class="mega-column"><h2>전체 상품</h2><ul><li><a href="${routeFor('shop','all')}">모든 상품 보기</a></li></ul></div>
+        <div class="mega-column"><h2>건강 목표별</h2><ul>${pages.shop.lnb.slice(1,5).map(item => `<li><a href="${routeFor('shop',item[1])}">${item[0]}</a></li>`).join('')}</ul></div>
+        <div class="mega-column"><h2>상품별</h2><ul><li><a href="${routeFor('shop','gut')}">유산균</a></li><li><a href="${routeFor('shop','all')}">비타민·미네랄</a></li><li><a href="${routeFor('shop','new')}">오메가3</a></li><li><a href="${routeFor('shop','all')}">단백질</a></li><li><a href="${routeFor('shop','weight')}">다이어트 보조</a></li></ul></div>
+        <div class="mega-column"><h2>추천</h2><ul><li><a href="${routeFor('shop','best')}">베스트</a></li><li><a href="${routeFor('shop','new')}">신상품</a></li><li><a href="${routeFor('shop','all')}">세트 상품</a></li></ul></div>
+        <aside class="mega-promo"><p>YOUR DAILY ROUTINE</p><strong>오늘부터 시작하는<br>나만의 건강 루틴</strong><a href="${routeFor('routine','custom')}">맞춤 상품 보기 <span>→</span></a></aside>
+      </div></div>`;
+    }
+    return `<div class="desktop-panel dropdown-panel" id="dropdown-${key}" data-panel="${key}" aria-hidden="true"><ul>${pages[key].lnb.map(item => `<li><a href="${routeFor(key,item[1])}">${item[0]}</a></li>`).join('')}</ul></div>`;
+  }).join('');
+
+  const lnb = page.lnb.map(item => `<a class="${item[1] === currentPage ? 'active' : ''}" href="${routeFor(section,item[1])}" ${item[1] === currentPage ? 'aria-current="page"' : ''}>${item[0]}</a>`).join('');
+  const mobileMenus = Object.keys(pages).map(key => `<li class="mobile-accordion ${key === section ? 'active is-open' : ''}"><button type="button" aria-expanded="${key === section}" aria-controls="mobile-${key}"><span>${labelMap[key]}</span><i aria-hidden="true"></i></button><div class="accordion-panel" id="mobile-${key}"><ul>${pages[key].lnb.map(item => `<li><a class="${key === section && item[1] === currentPage ? 'active' : ''}" href="${routeFor(key,item[1])}" ${key === section && item[1] === currentPage ? 'aria-current="page"' : ''}>${item[0]}</a></li>`).join('')}</ul></div></li>`).join('');
 
   document.querySelector('#sharedHeader').innerHTML = `
     <div class="promotion-bar">신규회원 가입 시 10% 할인 · 5만원 이상 무료배송</div>
     <header class="site-header" id="siteHeader"><div class="gnb-sticky"><div class="gnb-shell"><div class="gnb-inner">
       <button class="mobile-menu-open" id="mobileMenuOpen" type="button" aria-label="전체 메뉴 열기" aria-controls="mobileDrawer" aria-expanded="false"><span></span><span></span><span></span></button>
-      <a class="site-logo" href="index.html" aria-label="VIONA 홈">VIONA<span aria-hidden="true">●</span></a>
+      <a class="site-logo" href="${homeUrl}" aria-label="VIONA 홈">VIONA<span aria-hidden="true">●</span></a>
       <nav class="desktop-gnb" aria-label="주요 메뉴"><ul class="gnb-list">${navigationLinks}</ul></nav>
       <div class="gnb-utils"><a class="utility-link search-link" href="#" aria-label="검색"><span class="line-icon icon-search"></span></a><a class="utility-link account-link" href="#" aria-label="마이페이지"><span class="line-icon icon-user"></span></a><a class="utility-link cart-link" href="#" aria-label="장바구니, 상품 0개"><span class="line-icon icon-cart"></span><b class="cart-badge">0</b></a></div>
-    </div></div></div><nav class="lnb" aria-label="${labelMap[section]} 하위 메뉴"><div class="lnb-inner" id="lnbScroll">${lnb}</div></nav></header>
-    <div class="mobile-overlay" id="mobileOverlay" hidden></div><aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true" aria-label="모바일 전체 메뉴"><div class="drawer-head"><a class="site-logo" href="index.html">VIONA<span>●</span></a><button class="drawer-close" id="mobileMenuClose" type="button" aria-label="전체 메뉴 닫기">×</button></div><form class="mobile-search" role="search"><label class="sr-only" for="mobileSearch">검색어</label><input id="mobileSearch" type="search" placeholder="무엇을 찾고 계신가요?"><button type="submit" aria-label="검색"><span class="line-icon icon-search"></span></button></form><nav class="mobile-page-links" aria-label="모바일 주요 메뉴">${mobileLinks}</nav><nav class="mobile-support" aria-label="고객 메뉴"><a href="#">로그인</a><a href="#">주문·배송 조회</a><a href="#">찜한 상품</a><a href="#">고객센터</a></nav></aside>`;
+    </div></div>${desktopPanels}</div><nav class="lnb" aria-label="${labelMap[section]} 하위 메뉴"><div class="lnb-inner" id="lnbScroll">${lnb}</div></nav></header>
+    <div class="mobile-overlay" id="mobileOverlay" hidden></div><aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true" aria-label="모바일 전체 메뉴"><div class="drawer-head"><a class="site-logo" href="${homeUrl}">VIONA<span>●</span></a><button class="drawer-close" id="mobileMenuClose" type="button" aria-label="전체 메뉴 닫기">×</button></div><form class="mobile-search" role="search"><label class="sr-only" for="mobileSearch">검색어</label><input id="mobileSearch" type="search" placeholder="무엇을 찾고 계신가요?"><button type="submit" aria-label="검색"><span class="line-icon icon-search"></span></button></form><nav class="mobile-nav" aria-label="모바일 주요 메뉴"><ul>${mobileMenus}</ul></nav><nav class="mobile-support" aria-label="고객 메뉴"><a href="#">로그인</a><a href="#">주문·배송 조회</a><a href="#">찜한 상품</a><a href="#">고객센터</a></nav></aside>`;
 
   const points = page.points.map(point => `<div><b>${point[0]}</b><span>${point[1]}</span></div>`).join('');
-  const cards = page.cards.map((card,index) => section === 'shop' ? `
-    <article class="sub-card sub-product" id="${card.id}"><div class="sub-product-visual ${card.tone}"><div class="sub-product-bottle">VIONA</div></div><div class="sub-product-body"><span class="sub-card-tag">${card.tag}</span><h3>${card.title}</h3><p>${card.text}</p><div class="sub-price"><b>${card.sale}</b><strong>${card.price}</strong><del>${card.old}</del></div><a href="#">상품 자세히 보기 →</a></div></article>` : `
-    <article class="sub-card" id="${card.id}"><span class="sub-card-number">0${index + 1}</span><span class="sub-card-tag">${card.tag}</span><h3>${card.title}</h3><p>${card.text}</p><a href="#">자세히 보기 →</a></article>`).join('');
+  const cardHtml = (card,index) => section === 'shop' ? `
+    <article class="sub-card sub-product"><div class="sub-product-visual ${card.tone}"><div class="sub-product-bottle">VIONA</div></div><div class="sub-product-body"><span class="sub-card-tag">${card.tag}</span><h3>${card.title}</h3><p>${card.text}</p><div class="sub-price"><b>${card.sale}</b><strong>${card.price}</strong><del>${card.old}</del></div><a href="${routeFor(section,card.id)}">상품 자세히 보기 →</a></div></article>` : `
+    <article class="sub-card"><span class="sub-card-number">${String(index + 1).padStart(2,'0')}</span><span class="sub-card-tag">${card.tag}</span><h3>${card.title}</h3><p>${card.text}</p><a href="${routeFor(section,card.id)}">자세히 보기 →</a></article>`;
+  const cards = page.cards.map(cardHtml).join('');
+  const relatedCards = page.cards.filter(card => card.id !== currentPage).slice(0,3).map(cardHtml).join('');
+  const listingOrDetail = currentPage === firstId ? `
+    <section class="sub-bg"><div class="sub-section"><div class="sub-section-head"><div><p>${page.label}</p><h2>${currentLabel}</h2></div></div><div class="sub-card-grid">${cards}</div></div></section>` : `
+    <section class="sub-bg"><div class="sub-section"><div class="sub-detail-grid"><article class="sub-detail-main"><span class="sub-card-tag">${selectedCard.tag}</span><h2>${selectedCard.title}</h2><p>${selectedCard.text}</p><div class="sub-detail-checks"><div><b>01</b><span>VIONA가 엄선한 핵심 정보와 기준을 확인하세요.</span></div><div><b>02</b><span>일상에서 부담 없이 실천할 수 있는 방법을 안내합니다.</span></div><div><b>03</b><span>꾸준히 이어갈 수 있는 나만의 건강 루틴을 완성하세요.</span></div></div><a class="sub-detail-button" href="#">${section === 'shop' ? '상품 구매하기' : '콘텐츠 자세히 보기'} →</a></article><aside class="sub-detail-note"><small>VIONA GUIDE</small><strong>${currentLabel}</strong><p>현재 보고 있는 페이지는 ${labelMap[section]}의 ‘${currentLabel}’ 전용 서브페이지입니다.</p></aside></div></div></section>
+    <section class="sub-section"><div class="sub-section-head"><div><p>EXPLORE MORE</p><h2>함께 보면 좋은 콘텐츠</h2></div><a href="${routeFor(section,firstId)}">${page.lnb[0][0]} 보기 →</a></div><div class="sub-card-grid">${relatedCards}</div></section>`;
 
+  const heroTitle = currentPage === firstId ? page.title : selectedCard.title;
+  const heroDescription = currentPage === firstId ? page.description : selectedCard.text;
   document.querySelector('#subpageMain').innerHTML = `
-    <div class="breadcrumb"><a href="index.html">HOME</a><span>›</span>${labelMap[section]}</div>
-    <section class="sub-hero sub-${section}"><div class="sub-hero-inner"><div class="sub-hero-copy"><p class="sub-kicker">${page.label}</p><h1>${page.title.replace('\n','<br>')}</h1><p>${page.description}</p><p class="sub-slogan">Healthy Routine, Better Everyday.</p></div></div></section>
-    <section class="sub-section"><div class="sub-intro-grid"><div class="sub-intro-image"><img src="${page.image}" alt=""></div><div class="sub-intro-copy"><small>${page.introLabel}</small><h2>${page.introTitle.replace('\n','<br>')}</h2><p>${page.intro}</p><div class="sub-intro-points">${points}</div></div></div></section>
-    <section class="sub-bg"><div class="sub-section">${section === 'shop' ? '<span class="sub-anchor" id="best"></span>' : ''}<div class="sub-section-head"><div><p>${page.label}</p><h2>${page.lnb[0][0]}</h2></div><a href="#${page.lnb[0][1]}">전체 보기 →</a></div><div class="sub-card-grid">${cards}</div></div></section>
-    <section class="sub-cta"><p>VIONA와 함께 시작하는 건강한 변화</p><h2>오늘의 작은 선택을 내일의 루틴으로</h2><a href="shop.html">추천 상품 만나보기 →</a></section>`;
+    <div class="breadcrumb"><a href="${homeUrl}">HOME</a><span>›</span><a href="${routeFor(section,firstId)}">${labelMap[section]}</a><span>›</span>${currentLabel}</div>
+    <section class="sub-hero sub-${section}"><div class="sub-hero-inner"><div class="sub-hero-copy"><p class="sub-kicker">${page.label} · ${currentLabel}</p><h1>${heroTitle.replace('\n','<br>')}</h1><p>${heroDescription}</p><p class="sub-slogan">Healthy Routine, Better Everyday.</p></div></div></section>
+    <section class="sub-section"><div class="sub-intro-grid"><div class="sub-intro-image"><img src="${asset(page.image)}" alt=""></div><div class="sub-intro-copy"><small>${page.introLabel}</small><h2>${page.introTitle.replace('\n','<br>')}</h2><p>${page.intro}</p><div class="sub-intro-points">${points}</div></div></div></section>
+    ${listingOrDetail}
+    <section class="sub-cta"><p>VIONA와 함께 시작하는 건강한 변화</p><h2>오늘의 작은 선택을 내일의 루틴으로</h2><a href="${routeFor('shop','all')}">추천 상품 만나보기 →</a></section>`;
 
-  document.querySelector('#sharedFooter').innerHTML = `<footer><div class="footer-top"><div><a class="logo footer-logo" href="index.html">VIONA<span>●</span></a><p>Healthy Routine, Better Everyday.</p><div class="social"><a href="#">instagram</a><a href="#">youtube</a><a href="#">kakao</a></div></div><div class="footer-links"><div><b>SHOP</b><a href="shop.html">전체상품</a><a href="shop.html#best">베스트</a><a href="shop.html#new">신상품</a></div><div><b>CONTENTS</b><a href="routine.html">건강 루틴</a><a href="recipe.html">건강 레시피</a><a href="magazine.html">매거진</a></div><div><b>HELP</b><a href="#">공지사항</a><a href="#">FAQ</a><a href="#">1:1 문의</a></div><div><b>CUSTOMER CENTER</b><strong>1588-2048</strong><p>평일 10:00 — 17:00<br>점심 12:00 — 13:00</p></div></div></div><div class="footer-bottom"><p>주식회사 비오나 · 대표 김비오 · 서울특별시 성동구 성수이로 00<br>사업자등록번호 123-45-67890 · 통신판매업신고 2026-서울성동-0000</p><div><a href="#">이용약관</a><a href="#">개인정보처리방침</a><span>© 2026 VIONA. ALL RIGHTS RESERVED.</span></div></div></footer>`;
-
-  /* LNB 클릭 시 현재 탭 표시 */
-  const lnbLinks = [...document.querySelectorAll('.lnb a')];
-  function activateLnbFromHash() {
-    const target = lnbLinks.find(link => link.getAttribute('href') === window.location.hash) || lnbLinks[0];
-    lnbLinks.forEach(item => { item.classList.remove('active'); item.removeAttribute('aria-current'); });
-    target?.classList.add('active'); target?.setAttribute('aria-current','page');
-  }
-  lnbLinks.forEach(link => link.addEventListener('click', () => {
-    lnbLinks.forEach(item => { item.classList.remove('active'); item.removeAttribute('aria-current'); });
-    link.classList.add('active'); link.setAttribute('aria-current','page');
-  }));
-  window.addEventListener('hashchange', activateLnbFromHash);
-  activateLnbFromHash();
+  document.querySelector('#sharedFooter').innerHTML = `<footer><div class="footer-top"><div><a class="logo footer-logo" href="${homeUrl}">VIONA<span>●</span></a><p>Healthy Routine, Better Everyday.</p><div class="social"><a href="#">instagram</a><a href="#">youtube</a><a href="#">kakao</a></div></div><div class="footer-links"><div><b>SHOP</b><a href="${routeFor('shop','all')}">전체상품</a><a href="${routeFor('shop','best')}">베스트</a><a href="${routeFor('shop','new')}">신상품</a></div><div><b>CONTENTS</b><a href="${routeFor('routine','custom')}">건강 루틴</a><a href="${routeFor('recipe','all')}">건강 레시피</a><a href="${routeFor('magazine','all')}">매거진</a></div><div><b>HELP</b><a href="#">공지사항</a><a href="#">FAQ</a><a href="#">1:1 문의</a></div><div><b>CUSTOMER CENTER</b><strong>1588-2048</strong><p>평일 10:00 — 17:00<br>점심 12:00 — 13:00</p></div></div></div><div class="footer-bottom"><p>주식회사 비오나 · 대표 김비오 · 서울특별시 성동구 성수이로 00<br>사업자등록번호 123-45-67890 · 통신판매업신고 2026-서울성동-0000</p><div><a href="#">이용약관</a><a href="#">개인정보처리방침</a><span>© 2026 VIONA. ALL RIGHTS RESERVED.</span></div></div></footer>`;
 })();
