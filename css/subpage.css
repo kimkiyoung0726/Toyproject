@@ -18,3 +18,9 @@
 .subpage .sub-price b,.subpage .sub-price strong{font-family:var(--font-body);font-weight:700}
 .subpage p,.subpage .sub-card p,.subpage .sub-product-body p{font-weight:400}
 .subpage button,.subpage .sub-detail-button,.subpage .sub-cta a{font-family:var(--font-body);font-weight:500}
+
+/* SHOP 상품 카드: 태그와 상품명 사이 여백 */
+.sub-product-body .sub-card-tag{display:inline-block;margin-bottom:24px}
+
+/* 공통 서브페이지 카드: 번호와 태그 사이 여백 */
+.sub-card-number + .sub-card-tag{margin-top:14px}
