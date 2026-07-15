@@ -17,7 +17,6 @@
   const gnbSticky = document.querySelector('.gnb-sticky');
   const menuItems = [...document.querySelectorAll('.gnb-item.has-menu')];
   const menuPanels = [...document.querySelectorAll('.desktop-panel')];
-  const lnbCurrent = document.querySelector('.lnb a[aria-current="page"]');
 
   let openDesktopMenu = null;
 
@@ -184,18 +183,9 @@
   /* 모바일 검색 예시: 실제 검색 페이지 연결 전 새로고침 방지 */
   document.querySelector('.mobile-search')?.addEventListener('submit', (event) => event.preventDefault());
 
-  /* 현재 LNB 탭을 모바일 화면 안으로 자동 정렬 */
-  function revealCurrentLnb() {
-    if (!isMobile() || !lnbCurrent) return;
-    lnbCurrent.scrollIntoView({ behavior: 'auto', block: 'nearest', inline: 'center' });
-  }
-
   /* 화면 변경 시 드롭다운 위치 재계산 및 모바일 메뉴 상태 정리 */
   window.addEventListener('resize', () => {
     if (openDesktopMenu) positionDropdown(openDesktopMenu.dataset.menu);
     if (!isMobile() && mobileDrawer?.classList.contains('is-open')) closeMobileMenu();
-    revealCurrentLnb();
   });
-
-  revealCurrentLnb();
 })();
