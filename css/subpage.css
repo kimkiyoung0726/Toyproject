@@ -10,3 +10,11 @@
 .sub-detail-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,.55fr);gap:24px}.sub-detail-main,.sub-detail-note{background:#fff;border:1px solid #e0e5e1}.sub-detail-main{padding:54px}.sub-detail-main h2{margin:10px 0 18px;color:#173e31;font:500 38px/1.35 Georgia,"Noto Serif KR",serif;letter-spacing:-.04em}.sub-detail-main>p{max-width:720px;margin:0;color:#69716c;font-size:17px;line-height:1.9}.sub-detail-checks{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:38px 0}.sub-detail-checks div{min-height:136px;padding:22px;background:#f4f6f0}.sub-detail-checks b{display:block;margin-bottom:18px;color:#789340;font:700 12px Arial}.sub-detail-checks span{color:#59635d;font-size:14px;line-height:1.7}.sub-detail-button{display:inline-flex;padding:15px 22px;background:#174f3b;color:#fff;font-size:14px;font-weight:700}.sub-detail-note{align-self:start;padding:34px;background:#eaf0e6}.sub-detail-note small{color:#789340;font:700 11px Arial;letter-spacing:.16em}.sub-detail-note strong{display:block;margin:24px 0 14px;color:#174f3b;font:500 27px Georgia,"Noto Serif KR",serif}.sub-detail-note p{margin:0;color:#69716c;font-size:14px;line-height:1.75}
 @media(max-width:900px){.sub-detail-grid{grid-template-columns:1fr}}
 @media(max-width:600px){.breadcrumb{white-space:nowrap;overflow:hidden}.sub-detail-main{padding:30px 24px}.sub-detail-main h2{font-size:31px}.sub-detail-main>p{font-size:15px}.sub-detail-checks{grid-template-columns:1fr}.sub-detail-checks div{min-height:auto}}
+
+/* VIONA subpage typography */
+.subpage h2,.subpage h3,.subpage h4,.subpage p,.subpage a{font-family:var(--font-body)}
+.subpage .sub-hero h1{font-family:var(--font-display);font-weight:700}
+.subpage .sub-product-body h3{font-family:var(--font-body);font-weight:600}
+.subpage .sub-price b,.subpage .sub-price strong{font-family:var(--font-body);font-weight:700}
+.subpage p,.subpage .sub-card p,.subpage .sub-product-body p{font-weight:400}
+.subpage button,.subpage .sub-detail-button,.subpage .sub-cta a{font-family:var(--font-body);font-weight:500}

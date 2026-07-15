@@ -65,3 +65,8 @@ body.nav-locked{overflow:hidden}
 
 @media (max-width:1024px) and (min-width:769px){.site-logo{font-size:27px}.gnb-button{font-size:13px}.mega-column a{font-size:13px}.mega-promo strong{font-size:22px}}
 @media (max-width:768px){.promotion-bar{font-size:12px}.site-logo{font-size:24px}.lnb a{font-size:13px}.mobile-search input{font-size:14px}.mobile-accordion>button{font-size:16px}.accordion-panel a{font-size:14px}.mobile-support a{font-size:14px}}
+
+/* VIONA navigation typography */
+.site-logo{font-family:var(--font-display);font-weight:700}
+.gnb-button,.mobile-accordion>button,.mobile-search button{font-family:var(--font-body);font-weight:500}
+.mega-column h2,.mega-column a,.mega-promo strong,.mega-promo a,.dropdown-panel a,.lnb a,.accordion-panel a,.mobile-support a{font-family:var(--font-body)}
