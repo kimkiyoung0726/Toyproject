@@ -29,7 +29,7 @@
 .sub-card{scroll-margin-top:150px}
 
 /* SHOP 상품 이미지 스프라이트 */
-.sub-product-image{width:100%;height:100%;background-size:300% 200%;background-repeat:no-repeat}
+.sub-product-image{width:100%;height:100%;background-size:cover;background-position:center;background-repeat:no-repeat}
 
 /* RECIPE 카테고리별 음식 이미지 */
 .sub-recipe-card{padding:0;overflow:hidden}.sub-card-image{width:100%;height:220px;display:block;object-fit:cover}.sub-card-content{min-height:290px;padding:26px 30px;display:flex;flex-direction:column;flex:1}.sub-recipe-card .sub-card-content h3{margin-top:28px}.sub-recipe-card .sub-card-content a{margin-top:auto}

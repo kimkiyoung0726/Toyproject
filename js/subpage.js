@@ -14,12 +14,12 @@
       points: [['100%','원료 정보 공개'],['3 STEP','품질 검증'],['DAILY','간편한 섭취']],
       lnb: [['전체 상품','all'],['체중 관리','weight'],['장 건강','gut'],['면역 관리','immune'],['활력·에너지','energy'],['베스트','best'],['신상품','new']],
       cards: [
-        {id:'all',tag:'BEST 01',title:'데일리 밸런스 멀티팩',text:'하루 한 포로 채우는 7가지 필수 영양',sale:'20%',price:'32,800원',old:'41,000원',tone:'',image:'img/shop-products-sprite.png',position:'0% 0%'},
-        {id:'gut',tag:'BEST 02',title:'그린 바이옴 프로바이오틱스',text:'100억 유산균으로 시작하는 편안한 장 루틴',sale:'15%',price:'28,900원',old:'34,000원',tone:'alt',image:'img/shop-products-sprite.png',position:'50% 0%'},
-        {id:'energy',tag:'BEST 03',title:'에너지 부스터 비타민 B',text:'바쁜 일상에 필요한 활력 에너지 충전',sale:'15%',price:'24,600원',old:'29,000원',tone:'warm',image:'img/shop-products-sprite.png',position:'100% 0%'},
-        {id:'immune',tag:'NEW',title:'데일리 이뮨 밸런스',text:'정상적인 면역 기능을 위한 하루 한 캡슐',sale:'10%',price:'29,700원',old:'33,000원',tone:'alt',image:'img/shop-products-sprite.png',position:'0% 100%'},
-        {id:'weight',tag:'ROUTINE',title:'슬림 밸런스 가르시니아',text:'식사와 함께 관리하는 가벼운 체중 루틴',sale:'18%',price:'26,200원',old:'32,000원',tone:'warm',image:'img/shop-products-sprite.png',position:'50% 100%'},
-        {id:'new',tag:'NEW',title:'순수 초임계 알티지 오메가3',text:'혈행과 눈 건강을 한 번에 관리하세요',sale:'15%',price:'35,700원',old:'42,000원',tone:'',image:'img/shop-products-sprite.png',position:'100% 100%'}
+        {id:'all',tag:'BEST 01',title:'데일리 밸런스 멀티팩',text:'하루 한 포로 채우는 7가지 필수 영양',sale:'20%',price:'32,800원',old:'41,000원',tone:'',image:'img/shop-multivitamin-generated.png'},
+        {id:'gut',tag:'BEST 02',title:'그린 바이옴 프로바이오틱스',text:'100억 유산균으로 시작하는 편안한 장 루틴',sale:'15%',price:'28,900원',old:'34,000원',tone:'alt',image:'img/shop-probiotic-generated.png'},
+        {id:'energy',tag:'BEST 03',title:'에너지 부스터 비타민 B',text:'바쁜 일상에 필요한 활력 에너지 충전',sale:'15%',price:'24,600원',old:'29,000원',tone:'warm',image:'img/shop-vitamin-b-generated.png'},
+        {id:'immune',tag:'NEW',title:'데일리 이뮨 밸런스',text:'정상적인 면역 기능을 위한 하루 한 캡슐',sale:'10%',price:'29,700원',old:'33,000원',tone:'alt',image:'img/shop-immune-generated.png'},
+        {id:'weight',tag:'ROUTINE',title:'슬림 밸런스 가르시니아',text:'식사와 함께 관리하는 가벼운 체중 루틴',sale:'18%',price:'26,200원',old:'32,000원',tone:'warm',image:'img/shop-garcinia-generated.png'},
+        {id:'new',tag:'NEW',title:'순수 초임계 알티지 오메가3',text:'혈행과 눈 건강을 한 번에 관리하세요',sale:'15%',price:'35,700원',old:'42,000원',tone:'',image:'img/shop-omega3-generated.png'}
       ]
     },
     routine: {
@@ -61,10 +61,10 @@
       lnb:[['전체 레시피','all'],['다이어트 레시피','diet'],['고단백 레시피','protein'],['간편식','easy'],['건강 음료','drink']],
       cards:[
         {id:'all',tag:'15 MIN · 320 kcal',title:'허브 닭가슴살 샐러드',text:'신선한 채소와 담백한 단백질을 한 그릇에 담았습니다.',image:'img/recipe-salad.jpg'},
-        {id:'diet',tag:'10 MIN · 290 kcal',title:'프루트 오트밀 브런치',text:'포만감은 오래 유지하고 부담은 가볍게 줄인 아침 메뉴입니다.',image:'img/recipe-oatmeal.jpg'},
-        {id:'protein',tag:'20 MIN · 410 kcal',title:'두부 현미 단백질 볼',text:'식물성 단백질과 건강한 탄수화물의 든든한 조합입니다.',image:'img/recipe-tofu-bowl.png'},
-        {id:'easy',tag:'5 MIN · 240 kcal',title:'베리 그릭요거트 볼',text:'바쁜 아침에도 빠르게 완성하는 산뜻한 간편식입니다.',image:'img/recipe-yogurt.jpg'},
-        {id:'drink',tag:'5 MIN · 180 kcal',title:'그린 단백질 쉐이크',text:'채소와 과일, 단백질을 부드럽게 블렌딩한 건강 음료입니다.',image:'img/recipe-shake.jpg'}
+        {id:'diet',tag:'10 MIN · 290 kcal',title:'프루트 오트밀 브런치',text:'포만감은 오래 유지하고 부담은 가볍게 줄인 아침 메뉴입니다.',image:'img/recipe-oatmeal-generated.png'},
+        {id:'protein',tag:'20 MIN · 410 kcal',title:'두부 현미 단백질 볼',text:'식물성 단백질과 건강한 탄수화물의 든든한 조합입니다.',image:'img/recipe-tofu-bowl-generated.png'},
+        {id:'easy',tag:'5 MIN · 240 kcal',title:'베리 그릭요거트 볼',text:'바쁜 아침에도 빠르게 완성하는 산뜻한 간편식입니다.',image:'img/recipe-yogurt-generated.png'},
+        {id:'drink',tag:'5 MIN · 180 kcal',title:'그린 단백질 쉐이크',text:'채소와 과일, 단백질을 부드럽게 블렌딩한 건강 음료입니다.',image:'img/recipe-shake-generated.png'}
       ]
     },
     event: {
@@ -164,7 +164,7 @@
 
   const points = page.points.map(point => `<div><b>${point[0]}</b><span>${point[1]}</span></div>`).join('');
   const cardHtml = (card,index) => section === 'shop' ? `
-    <article class="sub-card sub-product" id="${card.id}"><div class="sub-product-visual ${card.tone}"><div class="sub-product-image" role="img" aria-label="${card.title}" style="background-image:url('${asset(card.image)}');background-position:${card.position}"></div></div><div class="sub-product-body"><span class="sub-card-tag">${card.tag}</span><h3>${card.title}</h3><p>${card.text}</p><div class="sub-price"><b>${card.sale}</b><strong>${card.price}</strong><del>${card.old}</del></div><a href="${routeFor(section,card.id)}">상품 자세히 보기 →</a></div></article>` : `
+    <article class="sub-card sub-product" id="${card.id}"><div class="sub-product-visual ${card.tone}"><div class="sub-product-image" role="img" aria-label="${card.title}" style="background-image:url('${asset(card.image)}')"></div></div><div class="sub-product-body"><span class="sub-card-tag">${card.tag}</span><h3>${card.title}</h3><p>${card.text}</p><div class="sub-price"><b>${card.sale}</b><strong>${card.price}</strong><del>${card.old}</del></div><a href="${routeFor(section,card.id)}">상품 자세히 보기 →</a></div></article>` : `
     <article class="sub-card ${card.image ? 'sub-recipe-card' : ''}" id="${card.id}">${card.image ? `<img class="sub-card-image" src="${asset(card.image)}" alt="${card.title}">` : ''}<div class="sub-card-content"><span class="sub-card-number">${String(index + 1).padStart(2,'0')}</span><span class="sub-card-tag">${card.tag}</span><h3>${card.title}</h3><p>${card.text}</p><a href="${routeFor(section,card.id)}">자세히 보기 →</a></div></article>`;
   const cards = page.cards.map(cardHtml).join('');
   const relatedCards = page.cards.filter(card => card.id !== currentPage).slice(0,3).map(cardHtml).join('');
@@ -175,10 +175,11 @@
 
   const heroTitle = (mergedSections.has(section) || currentPage === firstId) ? page.title : selectedCard.title;
   const heroDescription = (mergedSections.has(section) || currentPage === firstId) ? page.description : selectedCard.text;
+  const introImage = (mergedSections.has(section) || currentPage === firstId || !selectedCard.image) ? page.image : selectedCard.image;
   document.querySelector('#subpageMain').innerHTML = `
     <div class="breadcrumb"><a href="${homeUrl}">HOME</a><span>›</span><a href="${routeFor(section,firstId)}">${labelMap[section]}</a><span>›</span>${currentLabel}</div>
     <section class="sub-hero sub-${section}"><div class="sub-hero-inner"><div class="sub-hero-copy"><p class="sub-kicker">${page.label} · ${currentLabel}</p><h1>${heroTitle.replace('\n','<br>')}</h1><p>${heroDescription}</p><p class="sub-slogan">Healthy Routine, Better Everyday.</p></div></div></section>
-    <section class="sub-section"><div class="sub-intro-grid"><div class="sub-intro-image"><img src="${asset(page.image)}" alt=""></div><div class="sub-intro-copy"><small>${page.introLabel}</small><h2>${page.introTitle.replace('\n','<br>')}</h2><p>${page.intro}</p><div class="sub-intro-points">${points}</div></div></div></section>
+    <section class="sub-section"><div class="sub-intro-grid"><div class="sub-intro-image"><img src="${asset(introImage)}" alt="${currentLabel}"></div><div class="sub-intro-copy"><small>${page.introLabel}</small><h2>${page.introTitle.replace('\n','<br>')}</h2><p>${page.intro}</p><div class="sub-intro-points">${points}</div></div></div></section>
     ${listingOrDetail}
     <section class="sub-cta"><p>VIONA와 함께 시작하는 건강한 변화</p><h2>오늘의 작은 선택을 내일의 루틴으로</h2><a href="${routeFor('shop','all')}">추천 상품 만나보기 →</a></section>`;
 

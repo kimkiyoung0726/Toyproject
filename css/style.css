@@ -39,3 +39,11 @@ footer{padding:48px max(4vw,24px) 22px}.footer-top{display:grid;grid-template-co
 
 @media(max-width:900px){footer{padding:46px 20px 22px}.footer-top{display:flex;flex-direction:column;gap:32px}.footer-links{width:100%;margin-left:0;grid-template-columns:repeat(4,minmax(0,1fr));justify-content:start;gap:20px}.footer-bottom{margin-top:30px}}
 @media(max-width:600px){footer{padding:40px 20px 20px}.footer-top{gap:28px}.footer-links{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 20px}.footer-links>div{gap:7px}.footer-bottom{margin-top:26px;padding-top:16px}}
+
+/* 메인 SHOP 상품 이미지: 상품별 개별 이미지 연결 */
+.product-photo{position:absolute;inset:0;z-index:1;background:center/cover no-repeat}
+.product-photo.product-all{background-image:url('../img/shop-multivitamin-generated.png')}
+.product-photo.product-gut{background-image:url('../img/shop-probiotic-generated.png')}
+.product-photo.product-energy{background-image:url('../img/shop-vitamin-b-generated.png')}
+.product-photo.product-new{background-image:url('../img/shop-omega3-generated.png')}
+.product-visual .rank,.product-visual .heart{z-index:2}
