@@ -47,3 +47,52 @@ footer{padding:48px max(4vw,24px) 22px}.footer-top{display:grid;grid-template-co
 .product-photo.product-energy{background-image:url('../img/shop-vitamin-b-generated.png')}
 .product-photo.product-new{background-image:url('../img/shop-omega3-generated.png')}
 .product-visual .rank,.product-visual .heart{z-index:2}
+
+/* ================================================================
+   VIONA PREMIUM SERVICE POLISH
+   공통 여백·카드·버튼·표면 스타일을 정리해 실제 운영몰에 가까운
+   안정적인 정보 위계와 고급스러운 밀도를 만듭니다.
+================================================================ */
+:root{--surface:#fff;--surface-soft:#f7f9f5;--line-strong:#d7dfd8;--shadow-soft:0 14px 34px rgba(21,53,40,.07);--radius:14px}
+html{scroll-padding-top:82px}
+body{background:#fbfcfa;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a,button{transition:color .2s ease,background-color .2s ease,border-color .2s ease,box-shadow .2s ease,transform .2s ease}
+.topbar{font-weight:500;letter-spacing:.08em}
+.header{position:sticky;top:0;box-shadow:0 1px 0 rgba(18,61,44,.06);backdrop-filter:blur(14px);background:rgba(255,255,255,.96)}
+.header-actions button:hover{color:var(--green)}
+.hero{border-bottom:1px solid rgba(255,255,255,.35)}
+.hero-content{padding-top:168px;padding-bottom:120px}
+.hero h1{max-width:670px}
+.hero-buttons .btn{border-radius:4px}
+.section{padding-top:132px;padding-bottom:132px}
+.section-heading{margin-bottom:54px}
+.section-heading h2{letter-spacing:-.055em}
+.section-heading.row>a{color:var(--green);font-weight:600}
+.goal-grid{border:0;gap:1px;background:var(--line-strong);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-soft)}
+.goal-card{background:var(--surface);border:0!important;min-height:310px;padding:34px 28px}
+.goal-card:hover{transform:none;background:#f2f7ef;color:var(--ink)}
+.goal-card:hover .goal-icon{background:#e3eed8;color:var(--green)}
+.product-grid,.recipe-grid{gap:24px}
+.product-card{background:var(--surface);border:1px solid var(--line-strong);border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 14px rgba(22,58,43,.03);transition:transform .25s ease,box-shadow .25s ease}
+.product-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-soft)}
+.product-visual{height:360px}
+.product-photo{transition:transform .35s ease}
+.product-card:hover .product-photo{transform:scale(1.025)}
+.product-info{padding:22px 20px 20px}
+.product-info>button{border-radius:4px}
+.routine-section{border-top:1px solid #204d3b;border-bottom:1px solid #204d3b}
+.routine-card{border-radius:var(--radius)}
+.recipe-grid article{background:var(--surface);border:1px solid var(--line-strong);border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 14px rgba(22,58,43,.03);transition:transform .25s ease,box-shadow .25s ease}
+.recipe-grid article:hover{transform:translateY(-5px);box-shadow:var(--shadow-soft)}
+.recipe-grid h3,.recipe-grid article>p{padding-left:20px;padding-right:20px}
+.recipe-grid h3{margin-top:18px}
+.recipe-grid article>p{padding-bottom:20px}
+.recipe-img{height:300px}
+.magazine-grid,.brand{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-soft)}
+.story-list{background:var(--surface)}
+.events{border-top:1px solid #d4dfc8;border-bottom:1px solid #d4dfc8}
+.review-grid>article{background:var(--surface);border-radius:var(--radius);box-shadow:0 4px 14px rgba(22,58,43,.03)}
+.newsletter{border-top:1px solid var(--line-strong)}
+footer{border-top:4px solid #9fc43d}
+@media(max-width:900px){.hero-content{padding-top:125px;padding-bottom:92px}.section{padding-top:96px;padding-bottom:96px}.product-visual{height:330px}}
+@media(max-width:600px){.hero-content{padding-top:100px}.section{padding-top:76px;padding-bottom:76px}.section-heading{margin-bottom:34px}.product-grid,.recipe-grid{gap:18px}.goal-grid{border-radius:10px}.product-card,.recipe-grid article{border-radius:10px}.product-visual{height:320px}.recipe-img{height:330px}}
